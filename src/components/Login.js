@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React from 'react';
 import '../css/style.css'
 
 export default class Login extends React.Component {
@@ -7,14 +7,18 @@ export default class Login extends React.Component {
   }
 
   image
-  imageCanvas = document.createElement('canvas');
-  imageCanvasContext = this.imageCanvas.getContext('2d');
-  lineCanvas = document.createElement('canvas');
-  lineCanvasContext = this.lineCanvas.getContext('2d');
+  imageCanvas
+  imageCanvasContext
+  lineCanvas
+  lineCanvasContext 
   pointLifetime = 1000;
 
   componentDidMount = () => {
     this.image = document.querySelector('img');
+    this.imageCanvas = document.getElementById('imageCanvas');
+    this.imageCanvasContext = this.imageCanvas.getContext('2d');
+    this.lineCanvas = document.getElementById('lineCanvas');
+    this.lineCanvasContext = this.lineCanvas.getContext('2d');
     document.addEventListener('mousemove', this.onMouseMove)
     window.addEventListener('resize', this.resizeCanvases);
     document.body.appendChild(this.imageCanvas);
@@ -38,7 +42,7 @@ export default class Login extends React.Component {
     this.imageCanvas.height = this.lineCanvas.height = window.innerHeight;
   }
 
-  tick = () => { 
+  tick = () => {
     const pointLifetime = this.pointLifetime
     // Remove old points 
     this.setState(({ points }) => ({
@@ -112,9 +116,14 @@ export default class Login extends React.Component {
   render() {
     console.log(this.state.points)
     return (
-      <div>
-        <img src={require('../download.jpg')} />
-        <button onClick={()=>{this.props.history.push('/main')}}> Let Go !! </button>
+      <div >
+        <div className='body' > 
+          <canvas id='imageCanvas' ref={this.imageCanvas} />
+          <canvas id='lineCanvas' ref={this.lineCanvas} />
+
+          <img src={require('../download.jpg')} />
+          <button onClick={() => { this.props.history.push('/main') }}> Let Go !! </button>
+        </div>
       </div>
     )
   }
