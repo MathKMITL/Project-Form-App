@@ -7,12 +7,6 @@
   width: 100vw;
   background: url(https://get.pxhere.com/photo/light-abstract-photography-glass-crowd-color-blue-stadium-close-up-ball-balls-shape-macro-photography-spheres-hd-wallpaper-atmosphere-of-earth-computer-wallpaper-sport-venue-911268.jpg) 0 0 / cover;
 }
-/* .background{
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-} */
 
 img {
   display: none;
@@ -40,10 +34,34 @@ img {
   width: 5vw;
   margin: 5%
 }
+
 /* Main */
-.menu{
-  background-color: "red";
-  width: 50%;
-  height: 100%;
-  top: 15vh;
+#main{
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+#body_main{
+  /* background-color: blueviolet; */
+  /* display: flex;  */
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  left: 0;
+}
+#menu{
+  background-color: red;
+  /* width: 15vw; */
+  height: 87.18vh;
+}
+#list_menu{
+  background-color: green;
+  /* width: 15vw; */
+  height: 87.18vh;
+}
+#form{
+  background-color: gray;
+  /* width: 70vw; */
+  height: 87.18vh;
 }
