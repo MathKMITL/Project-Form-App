@@ -16,7 +16,7 @@ export default class Main extends React.Component {
           <div className='list_menu'>
 
           </div>
-        </div>
+        </div> 
         <div className='form'>
 
         </div>
