@@ -7,21 +7,26 @@ export default class Login extends React.Component {
   }
 
   image
-  imageCanvas
-  imageCanvasContext
-  lineCanvas
-  lineCanvasContext 
+  // imageCanvas
+  // imageCanvasContext
+  // lineCanvas
+  // lineCanvasContext 
+  imageCanvas = document.createElement('canvas');
+  imageCanvasContext = this.imageCanvas.getContext('2d');
+  lineCanvas = document.createElement('canvas');
+  lineCanvasContext = this.lineCanvas.getContext('2d');
   pointLifetime = 1000;
 
   componentDidMount = () => {
     this.image = document.querySelector('img');
-    this.imageCanvas = document.getElementById('imageCanvas');
-    this.imageCanvasContext = this.imageCanvas.getContext('2d');
-    this.lineCanvas = document.getElementById('lineCanvas');
-    this.lineCanvasContext = this.lineCanvas.getContext('2d');
+    // this.imageCanvas = document.getElementById('imageCanvas');
+    // this.imageCanvasContext = this.imageCanvas.getContext('2d');
+    // this.lineCanvas = document.getElementById('lineCanvas');
+    // this.lineCanvasContext = this.lineCanvas.getContext('2d');
     document.addEventListener('mousemove', this.onMouseMove)
     window.addEventListener('resize', this.resizeCanvases);
-    document.body.appendChild(this.imageCanvas);
+    // document.body.appendChild(this.imageCanvas);
+    document.getElementById('body').appendChild(this.imageCanvas);
     this.resizeCanvases();
     this.tick();
   }
@@ -116,14 +121,13 @@ export default class Login extends React.Component {
   render() {
     console.log(this.state.points)
     return (
-      <div >
-        <div className='body' > 
-          <canvas id='imageCanvas' ref={this.imageCanvas} />
-          <canvas id='lineCanvas' ref={this.lineCanvas} />
+      <div id='body' >
 
-          <img src={require('../download.jpg')} />
-          <button onClick={() => { this.props.history.push('/main') }}> Let Go !! </button>
-        </div>
+        {/* <canvas id='imageCanvas' ref={this.imageCanvas} />
+          <canvas id='lineCanvas' ref={this.lineCanvas} /> */}
+        <img src={require('../download.jpg')} />
+        <button onClick={() => { this.props.history.push('/main') }}> Let Go !! </button>
+
       </div>
     )
   }

@@ -6,9 +6,9 @@ export default class Main extends React.Component {
   render() {
     return (
       <div>
-        {/* <div>
+        <div>
           <Header />
-        </div> */}
+        </div>
         <div className='menu'>
           <div className='logo_menu'>
 
